@@ -11,6 +11,10 @@ body {
   overflow-y: scroll;
 }
 
+h1, h2, h3 {
+  font-family: 'Oleo Script', cursive;
+}
+
 /* Header */
 .casino-header {
   background-color: rgba(36, 41, 52, 0.96);
@@ -19,6 +23,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 48px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .casino-logo {
@@ -33,6 +38,13 @@ body {
   background-color: #20202b;
   padding: 10px 20px;
   border-radius: 10px;
+}
+
+.balance-info {
+  display: flex;
+  gap: 10px;
+  font-size: 24px;
+  color: white;
 }
 
 .add-funds-btn {
@@ -51,10 +63,39 @@ body {
 }
 
 /* Main Content */
+.main-content {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.sidebar {
+  background-color: #20202b;
+  color: #fff;
+  font: 700 22px 'Istok Web', sans-serif;
+  padding: 25px 19px;
+  width: 18%;
+}
+
 .games-container {
   background-color: #242934;
-  width: 100%;
+  width: 82%;
   padding: 28px 20px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.featured-game {
+  border-radius: 30px;
+  background-color: #d9d9d9;
+  height: 200px;
+  width: 100%;
+}
+
+.games-title {
+  color: #fff;
+  font: 700 28px 'Istok Web', sans-serif;
+  margin: 26px 0;
 }
 
 .game-grid {
@@ -81,33 +122,44 @@ body {
   transform: translateY(-10px);
 }
 
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  z-index: 10;
+@media (max-width: 991px) {
+  .casino-header {
+    padding: 10px 20px;
+  }
+
+  .casino-logo {
+    font-size: 35px;
+  }
+
+  .balance-container {
+    font-size: 18px;
+  }
+
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .games-container {
+    width: 100%;
+  }
+
+  .games-container {
+    padding: 20px 10px 60px;
+  }
+
+  .game-grid {
+    flex-direction: column;
+  }
+
+  .game-card {
+    width: 100%;
+    padding: 20px;
+    height: auto;
+  }
 }
 
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-/* Blackjack Styles */
+/* Blackjack Game Styles */
 .blackjack-container {
   padding: 40px;
   color: white;
@@ -115,16 +167,19 @@ input[type="number"] {
   min-height: 100vh;
 }
 
-#game-area {
-  margin-top: 40px;
+.blackjack-container h2, .blackjack-container h3 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-#dealer-hand, #player-hand {
-  padding: 20px;
-  background-color: #d9d9d9;
-  border-radius: 10px;
-  font-size: 20px;
-  color: black;
+input[type="number"] {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 button {
@@ -141,6 +196,27 @@ button:hover {
   background-color: #8a46e5;
 }
 
+#game-area {
+  margin-top: 40px;
+}
+
+#dealer-hand, #player-hand {
+  padding: 20px;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+#result {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
+  color: #ff0000;
+}
+
+/* Back to casino button */
 .blackjack-container button:last-child {
   margin-top: 40px;
   background-color: #ff5e5e;
