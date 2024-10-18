@@ -1,55 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casino</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casino</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="casino-header">
-    <h1 class="casino-name">Name</h1>
+    <h1 class="casino-logo">Casino</h1>
     <div class="balance-container">
       <div class="balance-info">
         <span class="balance-icon">🟡</span>
-        <span class="balance-amount">$0.00</span>
+        <span id="balance-display">$0.00</span>
       </div>
-      <button class="add-button">Add</button>
-    </div>
-    <div class="search-container">
-      <label for="search-input" class="visually-hidden">Search</label>
-      <input type="text" id="search-input" class="search-text" placeholder="Search" aria-label="Search">
-      <div class="search-icon-container">
-        <div class="search-icon"></div>
-      </div>
+      <button class="add-funds-btn" onclick="openAddFundsModal()">Add</button>
     </div>
   </header>
-  
+
+  <!-- Main content -->
   <main class="main-content">
-    <div class="content-wrapper">
-      <nav class="sidebar">
-        <div class="sidebar-item">
-          <span>Games</span>
-          <span>&gt;</span>
-        </div>
-        <div class="sidebar-item">
-          <span>Sports</span>
-          <span>&gt;</span>
-        </div>
-      </nav>
-      <section class="game-section">
-        <div class="game-banner"></div>
-        <h2 class="game-title">Games</h2>
-        <div class="game-grid">
-          <div class="game-row">
-            <article class="game-card">PLINKO</article>
-            <article class="game-card">BLACKJACK</article>
-            <article class="game-card">ROULETTE</article>
-          </div>
-        </div>
-      </section>
-    </div>
+    <section class="games-container">
+      <div class="featured-game"></div>
+      <h2 class="games-title">Games</h2>
+      <div class="game-grid">
+        <article class="game-card" id="blackjack-card">BLACKJACK</article>
+        <article class="game-card">ROULETTE</article>
+        <article class="game-card">PLINKO</article>
+      </div>
+    </section>
   </main>
-<script src="script.js"></script>
+
+  <!-- Add Funds Modal -->
+  <div id="add-funds-modal" class="modal">
+    <div class="modal-content">
+      <h2>Add Funds</h2>
+      <label for="funds-amount">Amount:</label>
+      <input type="number" id="funds-amount" placeholder="Enter amount in $">
+      <button onclick="addFunds()">Add Funds</button>
+      <button onclick="closeAddFundsModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
