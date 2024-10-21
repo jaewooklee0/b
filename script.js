@@ -20,4 +20,3 @@ window.onload = function () {
     document.getElementById("balance").innerText = `$${balance.toFixed(2)}`;
   }
 };
-
