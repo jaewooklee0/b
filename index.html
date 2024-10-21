@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casino</title>
+  <title>Name</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script> <!-- Add main JS -->
 </head>
 <body>
   <header class="casino-header">
@@ -12,34 +13,24 @@
     <div class="balance-container">
       <div class="balance-info">
         <span class="balance-icon">🟡</span>
-        <span id="balance-display">$0.00</span>
+        <span id="balance">$0.00</span> <!-- Display dynamic balance -->
       </div>
-      <button class="add-funds-btn" onclick="openAddFundsModal()">Add</button>
+      <button class="add-funds-btn" onclick="addFunds()">Add</button> <!-- Add funds button -->
     </div>
   </header>
 
   <main class="main-content">
+    <nav class="sidebar"></nav>
+
     <section class="games-container">
       <div class="featured-game"></div>
       <h2 class="games-title">Games</h2>
       <div class="game-grid">
-        <article class="game-card" id="blackjack-card">BLACKJACK</article>
-        <article class="game-card">ROULETTE</article>
-        <article class="game-card">PLINKO</article>
+        <article class="game-card" id="blackjack-game" onclick="goToBlackjack()">BLACKJACK</article> <!-- On click, navigate -->
+        <article class="game-card">Game</article>
+        <article class="game-card">Game</article>
       </div>
     </section>
   </main>
-
-  <div id="add-funds-modal" class="modal">
-    <div class="modal-content">
-      <h2>Add Funds</h2>
-      <label for="funds-amount">Amount:</label>
-      <input type="number" id="funds-amount" placeholder="Enter amount in $">
-      <button onclick="addFunds()">Add Funds</button>
-      <button onclick="closeAddFundsModal()">Close</button>
-    </div>
-  </div>
-
-  <script src="scripts.js"></script>
 </body>
 </html>
